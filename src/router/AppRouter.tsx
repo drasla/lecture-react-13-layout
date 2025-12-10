@@ -5,6 +5,9 @@ import { createBrowserRouter } from "react-router";
 import Home from "../pages/Home.tsx";
 import About from "../pages/About.tsx";
 import MainLayout from "../layouts/MainLayout.tsx";
+import AuthLayout from "../layouts/AuthLayout.tsx";
+import Login from "../pages/auth/Login.tsx";
+import SignUp from "../pages/auth/SignUp.tsx";
 
 export const router = () =>
     createBrowserRouter([
@@ -14,5 +17,12 @@ export const router = () =>
                 { path: "/", element: <Home /> },
                 { path: "/about", element: <About /> },
             ], // 그 레이아웃을 따르는 페이지 컴포넌트
+        },
+        {
+            element: <AuthLayout />,
+            children: [
+                { path: "/auth/login", element: <Login /> },
+                { path: "/auth/signUp", element: <SignUp /> },
+            ],
         },
     ]);
