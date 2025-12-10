@@ -6,7 +6,7 @@ const Head = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: ${(props) => props.theme.color.muted};
+    background-color: ${props => props.theme.color.muted};
 `;
 
 const NavLeft = styled.div`
@@ -31,7 +31,11 @@ const NavRight = styled.div`
     gap: 20px;
 `;
 
-function Header() {
+type Props = {
+    onClick: () => void;
+};
+
+function Header({ onClick }: Props) {
     return (
         <Head>
             <NavLeft>
@@ -43,6 +47,7 @@ function Header() {
             </NavLeft>
             <NavRight>
                 <Link to={"/auth/login"}>로그인</Link>
+                <button onClick={onClick}>테마변경</button>
             </NavRight>
         </Head>
     );

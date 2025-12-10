@@ -9,10 +9,14 @@ const Wrapper = styled.div`
     min-height: 100vh;
 `;
 
-function MainLayout() {
+type Props = {
+    onClick: () => void;
+}
+
+function MainLayout({ onClick }: Props) {
     return (
         <Wrapper>
-            <Header />
+            <Header onClick={onClick}/>
             <Outlet />
             <Footer />
         </Wrapper>
